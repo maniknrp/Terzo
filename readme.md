@@ -1,6 +1,6 @@
 # Project Title
 
-Terzo - Task Management can able to create, update, delete, get, list and get the status.
+Terzo - Task Management can able to create, update, delete, get, list and get the status of all tasks
 
 ## Getting Started
 
@@ -8,7 +8,7 @@ Terzo - Task Management can able to create, update, delete, get, list and get th
 2. Download and Setup the lombok jar in eclipse
 3. Import the project as maven
 4. Download the postman
-5. connect the postgres database
+5. setup the postgres database
 6. Execute the below query in db
 	create table task(id serial PRIMARY KEY,
 				  name VARCHAR(100) NOT NULL, 
