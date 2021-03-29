@@ -31,8 +31,8 @@ Input:
         {
             "name": "sample",
             "user": "sample@gmail.com",
-            "startDate": "2019",
-            "completionDate": "2020",
+            "startDate": "2019-29-03",
+            "completionDate": "2020-29-03",
             "status": "in_progress"
         }
     ]
@@ -55,8 +55,8 @@ Input:
         {
             "name": "sample",
             "user": "sample@gmail.com",
-            "startDate": "2019",
-            "completionDate": "2020",
+            "startDate": "2019-29-03",
+            "completionDate": "2020-29-03",
             "status": "started"
         }
     ]
@@ -79,8 +79,8 @@ output:
         {
             "name": "sample",
             "user": "sample@gmail.com",
-            "startDate": "2019",
-            "completionDate": "2020",
+            "startDate": "2019-29-03",
+            "completionDate": "2020-29-03",
             "status": "started"
         }
     ]
@@ -97,15 +97,15 @@ output:
         {
             "name": "sample",
             "user": "sample@gmail.com",
-            "startDate": "2019",
-            "completionDate": "2020",
+            "startDate": "2019-29-03",
+            "completionDate": "2020-29-03",
             "status": "started"
         },
         {
             "name": "sample2",
             "user": "sample2@gmail.com",
-            "startDate": "2019",
-            "completionDate": "2020",
+            "startDate": "2019-29-03",
+            "completionDate": "2020-29-03",
             "status": "in-progress"
         }
     ]
