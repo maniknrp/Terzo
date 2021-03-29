@@ -44,10 +44,12 @@ output:
     "message": "user added successfully"
 }
 
-b. Update Task: PUT CALL
-===========================
+### Update Task: PUT CALL
+
 URL : http://localhost:8080/task/user
-Sample Input: 
+
+Input: 
+
 {
     "task": [
         {
@@ -60,14 +62,17 @@ Sample Input:
     ]
 }
 output:
+
 {
     "message": "user updated successfully"
 }
 
-c. Get Task: GET CALL
-=====================
+### Get Task: GET CALL
+
 URL : http://localhost:8080/task/user?name=sample@gmail.com
+
 output:
+
 {
     "task": [
         {
@@ -80,10 +85,12 @@ output:
     ]
 }
 
-d. Get list of Task: GET CALL
-=============================
+### Get list of Task: GET CALL
+
 URL : http://localhost:8080/task/users
+
 output:
+
 {
     "task": [
         {
@@ -104,20 +111,22 @@ output:
 }
 
 
+### Delete Task: DELETE CALL
 
-
-e. Delete Task: DELETE CALL
-===========================
 URL : http://localhost:8080/task/user/mani@gmail.com
+
 output:
+
 {
     "message": "User is removed from db successfully"
 }
 
-f. Get Status: GET CALL
-======================= 
+### Get Status: GET CALL
+
 URL : http://localhost:8080/task/status
-sample output:
+
+output:
+
 {
     "review": 2,
     "completed": 2,
