@@ -39,6 +39,7 @@ Input:
 }
 
 output:
+
 {
     "message": "user added successfully"
 }
