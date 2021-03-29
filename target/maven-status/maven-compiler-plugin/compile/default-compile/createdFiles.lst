@@ -1,0 +1,8 @@
+com\terzo\springboot\util\UserServiceConstants.class
+com\terzo\springboot\service\UserService.class
+com\terzo\springboot\model\Task.class
+com\terzo\springboot\controller\Controller.class
+com\terzo\springboot\model\Status.class
+com\terzo\springboot\model\UserDetails.class
+com\terzo\springboot\service\UserServiceImpl.class
+com\terzo\springboot\SpringBootRestApiApp.class
