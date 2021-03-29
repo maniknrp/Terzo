@@ -24,7 +24,8 @@ Terzo - Task Management can able to create, update, delete, get, list and get th
 
 URL : http://localhost:8080/task/user
 
-Sample Input: 
+Input:
+
 {
     "task": [
         {
