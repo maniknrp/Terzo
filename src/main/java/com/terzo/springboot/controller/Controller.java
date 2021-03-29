@@ -56,10 +56,11 @@ public class Controller {
 	 * get a task from db
 	 */
 	@GetMapping(value = "/user")
-	public ResponseEntity<Task> getTask(@RequestParam(value = "name") String name) {
-		Task users = userService.getTask(name);
+	public ResponseEntity<Task> getUser(@RequestParam(value = "name") String name) {
+		Task users = userService.getUser(name);
 		if (users.getUserDetails().isEmpty()) {
-			return new ResponseEntity<Task>(HttpStatus.INTERNAL_SERVER_ERROR);
+			users.setMessage("User not exists in db");
+			return new ResponseEntity<Task>(users, HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<Task>(users, HttpStatus.OK);
 	}

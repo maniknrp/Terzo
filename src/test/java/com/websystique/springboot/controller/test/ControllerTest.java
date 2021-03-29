@@ -72,9 +72,9 @@ public class ControllerTest {
 		Task task = new Task();
 		List<UserDetails> userDetails = new ArrayList<>();
 		task.setUserDetails(userDetails);
-		when(userService.getTask(Mockito.anyString())).thenReturn(task);
-		ResponseEntity<Task> s = controller.getTask(name);
-		assertEquals(s.getStatusCode(), HttpStatus.INTERNAL_SERVER_ERROR);
+		when(userService.getUser(Mockito.anyString())).thenReturn(task);
+		ResponseEntity<Task> s = controller.getUser(name);
+		assertEquals(s.getStatusCode(), HttpStatus.NOT_FOUND);
 	}
 	
 	@Test
@@ -86,8 +86,8 @@ public class ControllerTest {
 		userDetail.setUser("mani");
 		userDetails.add(userDetail);
 		task.setUserDetails(userDetails);
-		when(userService.getTask(Mockito.anyString())).thenReturn(task);
-		ResponseEntity<Task> s = controller.getTask(name);
+		when(userService.getUser(Mockito.anyString())).thenReturn(task);
+		ResponseEntity<Task> s = controller.getUser(name);
 		assertEquals(s.getStatusCode(), HttpStatus.OK);
 	}
 	

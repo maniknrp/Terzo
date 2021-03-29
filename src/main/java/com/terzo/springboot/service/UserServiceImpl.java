@@ -28,10 +28,10 @@ public class UserServiceImpl implements UserService{
 	 * 
 	 */
 	@Override
-	public Task getTask(String name) {
+	public Task getUser(String name) {
 		Task task = new Task();
 		List<UserDetails> userDetails = new ArrayList<>();
-		SqlRowSet sqlRowSet = jdbcTemplate.queryForRowSet(UserServiceConstants.GET_USER_BY_TASK, name);
+		SqlRowSet sqlRowSet = jdbcTemplate.queryForRowSet(UserServiceConstants.GET_USER_BY_TASK, name.toLowerCase());
 		while (sqlRowSet.next()) {
 			UserDetails userDetail = new UserDetails();
 			userDetail.setName(sqlRowSet.getString("name"));
@@ -145,7 +145,7 @@ public class UserServiceImpl implements UserService{
 				}
 
 			} else {
-				response.setMessage("User is already exists");
+				response.setMessage("User is not exists in db");
 			}
 		}
 		return response;

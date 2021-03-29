@@ -37,7 +37,7 @@ public class UserServiceImplTest {
 		SqlRowSet sqlRowSet = Mockito.mock(SqlRowSet.class);
 		when(jdbcTemplate.queryForRowSet(UserServiceConstants.GET_USER_BY_TASK, name)).thenReturn(sqlRowSet);
 		when(sqlRowSet.next()).thenReturn(true).thenReturn(false);
-		Task s = userServiceImpl.getTask(name);
+		Task s = userServiceImpl.getUser(name);
 		assertNotNull(s);
 	}
 	

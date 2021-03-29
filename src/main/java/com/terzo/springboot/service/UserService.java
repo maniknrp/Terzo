@@ -9,7 +9,7 @@ public interface UserService {
 	/**
 	 * get a task from db
 	 */
-	Task getTask(String name);
+	Task getUser(String name);
 	
 	/**
 	 * list all the users from db

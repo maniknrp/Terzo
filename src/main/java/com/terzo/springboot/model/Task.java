@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @Data
 @NoArgsConstructor
-@JsonInclude(Include.NON_NULL)
+@JsonInclude(Include.NON_EMPTY)
 public class Task {
 	
 	/**
