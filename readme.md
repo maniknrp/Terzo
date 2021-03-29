@@ -23,6 +23,7 @@ Terzo - Task Management can able to create, update, delete, get, list and get th
 ### Add Task: POST CALL
 
 URL : http://localhost:8080/task/user
+
 Sample Input: 
 {
     "task": [
@@ -35,6 +36,7 @@ Sample Input:
         }
     ]
 }
+
 output:
 {
     "message": "user added successfully"
