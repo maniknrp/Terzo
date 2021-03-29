@@ -20,7 +20,7 @@ Terzo - Task Management can able to create, update, delete, get, list and get th
 7. Below APIs are how to execute in postman
 
 
-a. Add Task: POST CALL
+### Add Task: POST CALL
 ======================
 URL : http://localhost:8080/task/user
 Sample Input: 
