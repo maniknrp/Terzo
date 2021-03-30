@@ -124,15 +124,20 @@ output:
 
 ### Get Status: GET CALL
 
-URL : http://localhost:8080/task/status
+http://localhost:8080/task/all?status=completed
 
 output:
 
 {
-    "review": 2,
-    "completed": 2,
-    "yet_to_start": 0,
-    "in_progress": 2
+    "task": [
+        {
+            "name": "venkat",
+            "user": "venkat@gmail.com",
+            "startDate": "2019-29-03",
+            "completionDate": "2019-30-03",
+            "status": "completed"
+        }
+    ]
 }
 
 ## swagger url

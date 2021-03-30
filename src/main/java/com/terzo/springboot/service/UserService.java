@@ -1,7 +1,6 @@
 package com.terzo.springboot.service;
 
 
-import com.terzo.springboot.model.Status;
 import com.terzo.springboot.model.Task;
 
 public interface UserService {
@@ -34,7 +33,7 @@ public interface UserService {
 	/**
 	 * get the status for all the users
 	 */
-	Status getStatus();
+	Task getStatus(String status, String assignee);
 
 	
 }

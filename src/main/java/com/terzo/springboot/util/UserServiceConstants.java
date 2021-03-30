@@ -24,6 +24,6 @@ public class UserServiceConstants {
 	/**
 	 * GET_STATUS
 	 */
-	public static final String GET_STATUS = "select status from task";
+	public static final String GET_STATUS = "select * from task where status = ? and userid = ?";
 
 }

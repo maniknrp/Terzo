@@ -1,7 +1,6 @@
 package com.terzo.springboot.service;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Service;
 
-import com.terzo.springboot.model.Status;
 import com.terzo.springboot.model.Task;
 import com.terzo.springboot.model.UserDetails;
 import com.terzo.springboot.util.UserServiceConstants;
@@ -155,18 +153,21 @@ public class UserServiceImpl implements UserService{
 	 * 
 	 */
 	@Override
-	public Status getStatus() {
-		Status status = new Status();
-		List<String> statusList = new ArrayList<>();
-		SqlRowSet sqlRowSet = jdbcTemplate.queryForRowSet(UserServiceConstants.GET_STATUS);
+	public Task getStatus(String status, String assignee) {
+		Task task = new Task();
+		UserDetails userDetail = null;
+		List<UserDetails> userDetails = new ArrayList<>();
+		SqlRowSet sqlRowSet = jdbcTemplate.queryForRowSet(UserServiceConstants.GET_STATUS, status, assignee);
 		while (sqlRowSet.next()) {
-			String statues = sqlRowSet.getString("status");
-			statusList.add(statues);
+			userDetail = new UserDetails();
+			userDetail.setName(sqlRowSet.getString("name"));
+			userDetail.setUser(sqlRowSet.getString("userid"));
+			userDetail.setStartDate(sqlRowSet.getString("start_date"));
+			userDetail.setCompletionDate(sqlRowSet.getString("completion_date"));
+			userDetail.setStatus(sqlRowSet.getString("status"));
+			userDetails.add(userDetail);
 		}
-		status.setInprogress(Collections.frequency(statusList, "in_progress"));
-		status.setYetToStart(Collections.frequency(statusList, "started"));
-		status.setReview(Collections.frequency(statusList, "review"));
-		status.setCompleted(Collections.frequency(statusList, "completed"));
-		return status;
+		task.setUserDetails(userDetails);
+		return task;
 	}
 }

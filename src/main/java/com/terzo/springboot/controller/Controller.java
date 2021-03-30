@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.terzo.springboot.model.Status;
 import com.terzo.springboot.model.Task;
 import com.terzo.springboot.service.UserService;
 
@@ -78,9 +77,14 @@ public class Controller {
 	/**
 	 * get the status for all the users
 	 */
-	@GetMapping(value = "/status")
-	public ResponseEntity<Status> getStatus() {
-		Status users = userService.getStatus();
-		return new ResponseEntity<Status>(users, HttpStatus.OK);
+	@GetMapping(value = "/all")
+	public ResponseEntity<Task> getStatus(@RequestParam(value = "status") String status, 
+			@RequestParam(value = "assignee") String assignee) {
+		Task users = userService.getStatus(status, assignee);
+		if (users.getUserDetails().isEmpty()) {
+			users.setMessage("User not exists in db");
+			return new ResponseEntity<Task>(users, HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<Task>(users, HttpStatus.OK);
 	}
 }

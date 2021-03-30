@@ -16,7 +16,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import com.terzo.springboot.controller.Controller;
-import com.terzo.springboot.model.Status;
 import com.terzo.springboot.model.Task;
 import com.terzo.springboot.model.UserDetails;
 import com.terzo.springboot.service.UserService;
@@ -111,9 +110,24 @@ public class ControllerTest {
 	
 	@Test
 	public void testGetStatus() {
-		Status status = new Status();
-		when(userService.getStatus()).thenReturn(status);
-		ResponseEntity<Status> s = controller.getStatus();
+		Task task = new Task();
+		UserDetails userDetail = new UserDetails();
+		List<UserDetails> userDetails = new ArrayList<>();
+		userDetail.setUser("mani");
+		userDetails.add(userDetail);
+		task.setUserDetails(userDetails);
+		when(userService.getStatus(Mockito.anyString(), Mockito.anyString())).thenReturn(task);
+		ResponseEntity<Task> s = controller.getStatus("completed", "mani@gmail.com");
 		assertEquals(s.getStatusCode(), HttpStatus.OK);
+	}
+	
+	@Test
+	public void testGetStatusBusinessError() {
+		Task task = new Task();
+		List<UserDetails> userDetails = new ArrayList<>();
+		task.setUserDetails(userDetails);
+		when(userService.getStatus(Mockito.anyString(), Mockito.anyString())).thenReturn(task);
+		ResponseEntity<Task> s = controller.getStatus("completed", "mani@gmail.com");
+		assertEquals(s.getStatusCode(), HttpStatus.NOT_FOUND);
 	}
 }

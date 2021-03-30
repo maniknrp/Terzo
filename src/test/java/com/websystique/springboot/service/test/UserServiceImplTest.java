@@ -16,7 +16,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
-import com.terzo.springboot.model.Status;
 import com.terzo.springboot.model.Task;
 import com.terzo.springboot.model.UserDetails;
 import com.terzo.springboot.service.UserServiceImpl;
@@ -115,9 +114,10 @@ public class UserServiceImplTest {
 	@Test
 	public void testGetStatusTest() {
 		SqlRowSet sqlRowSet = Mockito.mock(SqlRowSet.class);
-		when(jdbcTemplate.queryForRowSet(UserServiceConstants.GET_STATUS)).thenReturn(sqlRowSet);
+		when(jdbcTemplate.queryForRowSet(UserServiceConstants.GET_STATUS, "completed", "mani@gmail.com"))
+				.thenReturn(sqlRowSet);
 		when(sqlRowSet.next()).thenReturn(true).thenReturn(false);
-		Status s = userServiceImpl.getStatus();
+		Task s = userServiceImpl.getStatus("completed", "mani@gmail.com");
 		assertNotNull(s);
 	}
 
