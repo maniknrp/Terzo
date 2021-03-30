@@ -124,7 +124,7 @@ output:
 
 ### Get Status: GET CALL
 
-http://localhost:8080/task/all?status=completed
+http://localhost:8080/task/all?status=completed&assignee=venkat@gmail.com
 
 output:
 
